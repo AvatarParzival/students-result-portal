@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f9ff;
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <div class="min-h-screen flex flex-col">
+        <header class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-graduation-cap text-3xl text-blue-600 mr-3"></i>
+                    <h1 class="text-2xl font-bold text-gray-800">Student<span class="text-blue-600">Hub</span></h1>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a></li>
+                        <li><a href="./backend/register.php" class="text-gray-600 hover:text-blue-600 font-medium">Register</a></li>
+                        <li><a href="./backend/login.php" class="text-gray-600 hover:text-blue-600 font-medium">Login</a></li>
+                        <li><a href="./backend/admin_login.php" class="text-gray-600 hover:text-blue-600 font-medium">Admin</a></li>
+                    </ul>
+                </nav>
+                <button class="md:hidden text-gray-600" onclick="toggleMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div id="mobile-nav" class="hidden md:hidden">
+                <ul class="bg-white shadow-md rounded-lg p-4 space-y-4">
+                    <li><a href="index.html" class="block text-gray-600 hover:text-blue-600 font-medium">Home</a></li>
+                    <li><a href="./backend/register.php" class="block text-gray-600 hover:text-blue-600 font-medium">Register</a></li>
+                    <li><a href="./backend/login.php" class="block text-gray-600 hover:text-blue-600 font-medium">Login</a></li>
+                    <li><a href="./backend/admin_login.php" class="block text-gray-600 hover:text-blue-600 font-medium">Admin</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section class="flex-grow flex items-center">
+            <div class="container mx-auto px-4 py-12 md:py-24">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                            Welcome to <span class="text-blue-600">StudentHub</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8">
+                            Your one-stop solution for student management. Register, login, and access your academic information with ease.
+                        </p>
+                        <div class="bg-blue-100 p-4 rounded-lg mb-6">
+                            <p class="text-blue-800 font-medium"><i class="fas fa-info-circle mr-2"></i> Students: Use your roll number to login</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="./backend/register.php" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-user-plus mr-2"></i> Student Register
+                            </a>
+                            <a href="./backend/login.php" class="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-sign-in-alt mr-2"></i> Student Login
+                            </a>
+                            <a href="./backend/admin_login.php" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-user-shield mr-2"></i> Admin Login
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative">
+                            <div class="bg-blue-100 rounded-full w-80 h-80 flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-9xl text-blue-300"></i>
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-xl shadow-lg">
+                                <div class="flex items-center">
+                                    <div class="bg-green-100 p-2 rounded-full mr-3">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800">1000+ Students</p>
+                                        <p class="text-sm text-gray-600">Registered</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-4 -left-4 bg-white p-4 rounded-xl shadow-lg">
+                                <div class="flex items-center">
+                                    <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                        <i class="fas fa-book text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800">Adaptable</p>
+                                        <p class="text-sm text-gray-600">As You Wish</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
